@@ -17,7 +17,7 @@ The project is written purely in Java, making it easy to build.
 
 ### 1.2 Proof I Ran Package
 
-![alt text](https://github.com/HenkWillcock/SWEN301ArchitectureProject/blob/master/ScreenShot.PNG =250x)
+![](https://github.com/HenkWillcock/SWEN301ArchitectureProject/blob/master/ScreenShot.PNG =250x250)
 
 It might be a bit difficult to see because all the words overlap, but I've replaced all the column labels with my name (Henk Willcock).
 
