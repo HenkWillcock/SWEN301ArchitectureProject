@@ -57,24 +57,15 @@ These components are essential to the basic functionality of the program, they c
 These components don't have many methods beyond getters and setters and are primarily used for storing information about various aspects of the chess game.
 
 ##### Player
-
 Used for storing player data such as name, wins, losses and total games played.
 
 ##### Cell
-
 Used for storing data about a single square on the board
 
 ###### Fields
-| Type    | Name        |
-|---------|-------------|
 | Integer | Row         |
 | Integer | Column      |
 | Boolean | Highlighted |
-
-
-* Row : Integer
-* Column : Integer
-* Highlighted : Boolean
 
 ##### Move
 
