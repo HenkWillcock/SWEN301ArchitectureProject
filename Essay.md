@@ -1,10 +1,22 @@
-# SWEN301ArchitectureProject
+# SWEN301ArchitectureProject - ChessMaster Project
 
-## ChessMaster Project
+## 1 Project Overview
 
 ChessMaster is a simple graphical chess game which can be played on a desktop.
 
-### Project Design
+### 1.1 Platform
+
+The project is written purely in Java. 
+
+### 1.2 Proof I Ran Package
+
+
+
+### 1.3 History
+
+### 1.4 Domain
+
+## 2 Project Design
 
 There are 2 packages. 
 The Piece package provides all dummy pieces, their icons and unit-tests for 
@@ -19,7 +31,13 @@ The project has been documented using javadocs inline with the code.
 Currently known bugs are opened as issues on this repo. Please report any new 
 bugs or issues that you face.
 
-### Bugs
+### 2.1 Component Architecture
+
+### 2.2 Data Structures
+
+### 2.3 Testing
+
+### 2.4 Known Bugs
 
 * File saving doesn't work on Windows.
 * Undo doesn't remove highlighted cells.
@@ -27,7 +45,7 @@ bugs or issues that you face.
 * In one player mode, at times, AI takes longer (up to 50 seconds) to play its move, and human move is not reflected on the board till the AI plays its move.
 The reason for this bug is unknown.
 
-### Contributors
+### 3 Contributors
 
 * Ravishankar Joshi, for all the code and design of the project.
 * Anish Bhobe for some design decisions.
