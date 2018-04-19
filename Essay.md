@@ -6,7 +6,7 @@ ChessMaster is a simple graphical chess game which can be played on a desktop.
 
 ### 1.1 Build Platform
 
-The project is written purely in Java, making it easy to build.
+ChessMaster is written purely in Java, making it easy to build. It also comes with a runnable jar file which was used to test the project before building. The project was built on a Windows machine using the Eclipse Oxygen IDE.
 
 #### System Specifications:
 
@@ -15,15 +15,19 @@ The project is written purely in Java, making it easy to build.
 * GPU: NVIDIA GT 1030
 * OS: Windows 7 Professional Edition
 
-### 1.2 Proof I Ran Package
+### 1.2 Proof of Build
 
 <img src="https://github.com/HenkWillcock/SWEN301ArchitectureProject/blob/master/screen_shot.PNG" alt="screen shot" width="400px"/>
 
 It might be a bit difficult to see because all the words overlap, but I've replaced all the column labels with my name (Henk Willcock).
 
-### 1.3 History
+### 1.3 Project History
 
-### 1.4 Domain
+The ChessMaster repository was created in December 2017, along with an initial commit. ChessMaster was commited to regularly until March 2018, development then slowed down. The last commit was on March 12th, and it's unclear if their are any active commiters as of April 2018.
+
+### 1.4 Project Domain
+
+ChessMaster is a simple GUI chess game. It features a basic MinMax AI for single player games. ChessMaster is designed for offline use on a desktop or laptop machine. Because of this, it is limited by the hardware limitations of the particular machine it is running on. 
 
 ## 2 Project Design
 
