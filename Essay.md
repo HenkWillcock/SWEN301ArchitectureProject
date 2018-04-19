@@ -40,9 +40,9 @@ bugs or issues that you face.
 
 ### 2.1 Component Architecture
 
-#### 2.1.1 Large Components
+#### 2.1.1 Core Objects
 
-These components are essential to the basic functionality of the program, they create the vast majority of the programs behaviour.
+These objects are essential to the basic functionality of the program, they create the vast majority of the programs behaviour.
 
 ##### Board
 
@@ -52,17 +52,23 @@ These components are essential to the basic functionality of the program, they c
 
 ##### AI
 
-#### 2.1.2 Data Storage Components
+#### 2.1.2 Data Storage Objects
 
 These components don't have many methods beyond getters and setters and are primarily used for storing information about various aspects of the chess game.
 
 ##### Player
 Used for storing player data such as name, wins, losses and total games played.
 
+| Type    | Name         |
+| ------- | ------------ |
+| String  | Name         |
+| Integer | Games Played |
+| Integer | Games Won    |
+| Integer | Games Lost   |
+
 ##### Cell
 Used for storing data about a single square on the board
 
-###### Fields
 | Type    | Name        |
 | ------- | ----------- |
 | Integer | Row         |
@@ -72,6 +78,20 @@ Used for storing data about a single square on the board
 ##### Move
 
 Used for storing data about a single move.
+
+| Type    | Name           |
+| ------- | -------------- |
+| Cell    | Source         |
+| Cell    | Destination    |
+| Piece   | On Source      |
+| Piece   | On Destination |
+| String  | Move Type      |
+| Queen   | New Queen      |
+
+Problems:
+* Most moves won't utilise the 'New Queen' field. There should be a 'PromotionMove' class extending this one which adds this field.
+* 'Move Type' shouldn't be a String, it should be an enumerated type. This would remove many oppurtunities for bugs and allow developers to see all the possible move types easily.
+* The name 'On Source' isn't very descriptive, it should be renamed 'Moving Piece'.
 
 ### 2.2 Data Structures 
 
