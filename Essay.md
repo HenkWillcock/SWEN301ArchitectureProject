@@ -36,7 +36,7 @@ bugs or issues that you face.
 
 ### 2.1 Component Architecture
 
-### 2.2 Data Structures
+### 2.2 Data Structures 
 
 ### 2.3 Testing
 
