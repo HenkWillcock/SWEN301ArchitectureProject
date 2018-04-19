@@ -10,7 +10,7 @@ The project is written purely in Java.
 
 ### 1.2 Proof I Ran Package
 
-
+![alt text](https://github.com/HenkWillcock/SWEN301ArchitectureProject/blob/master/ScreenShot.PNG)
 
 ### 1.3 History
 
