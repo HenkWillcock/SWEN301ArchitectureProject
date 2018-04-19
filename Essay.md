@@ -40,6 +40,46 @@ bugs or issues that you face.
 
 ### 2.1 Component Architecture
 
+#### 2.1.1 Large Components
+
+These components are essential to the basic functionality of the program, they create the vast majority of the programs behaviour.
+
+##### Board
+
+##### Game
+
+##### Graphics Handler
+
+##### AI
+
+#### 2.1.2 Data Storage Components
+
+These components don't have many methods beyond getters and setters and are primarily used for storing information about various aspects of the chess game.
+
+##### Player
+
+Used for storing player data such as name, wins, losses and total games played.
+
+##### Cell
+
+Used for storing data about a single square on the board
+
+###### Fields
+| Type    | Name        |
+|---------|-------------|
+| Integer | Row         |
+| Integer | Column      |
+| Boolean | Highlighted |
+
+
+* Row : Integer
+* Column : Integer
+* Highlighted : Boolean
+
+##### Move
+
+Used for storing data about a single move.
+
 ### 2.2 Data Structures 
 
 ### 2.3 Testing
