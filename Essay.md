@@ -63,6 +63,8 @@ Used for storing player data such as name, wins, losses and total games played.
 Used for storing data about a single square on the board
 
 ###### Fields
+| Type    | Name        |
+| ------- | ----------- |
 | Integer | Row         |
 | Integer | Column      |
 | Boolean | Highlighted |
