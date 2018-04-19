@@ -4,13 +4,22 @@
 
 ChessMaster is a simple graphical chess game which can be played on a desktop.
 
-### 1.1 Platform
+### 1.1 Build Platform
 
-The project is written purely in Java. 
+The project is written purely in Java, making it easy to build.
+
+#### System Specifications:
+
+* CPU: AMD Phenom 9600 Quad-Core 2.3 GHz
+* RAM: 4GB
+* GPU: NVIDIA GT 1030
+* OS: Windows 7 Professional Edition
 
 ### 1.2 Proof I Ran Package
 
 ![alt text](https://github.com/HenkWillcock/SWEN301ArchitectureProject/blob/master/ScreenShot.PNG)
+
+It might be a bit difficult to see because all the words overlap, but I've replaced all the column labels with my name (Henk Willcock).
 
 ### 1.3 History
 
@@ -18,13 +27,7 @@ The project is written purely in Java.
 
 ## 2 Project Design
 
-There are 2 packages. 
-The Piece package provides all dummy pieces, their icons and unit-tests for 
-their functionality.
-The chess package provides most of the functionality and unit-tests of the game. 
-AI class plays against a human player in 1 player mode. Movement class handles movements 
-of all pieces. Game and user classes retrieve and store respective statistics 
-from files. The GUI functions are also handled. 
+There are 2 packages. The Piece package provides all dummy pieces, their icons and unit-tests for their functionality. The chess package provides most of the functionality and unit-tests of the game. AI class plays against a human player in 1 player mode. Movement class handles movements of all pieces. Game and user classes retrieve and store respective statistics from files. The GUI functions are also handled. 
 
 The project has been documented using javadocs inline with the code.
 
