@@ -54,14 +54,55 @@ These objects are essential to the basic functionality of the program, they crea
 ##### Movement
 This class handles most of the behaviour of the program. It's by far the largest class at over 900 lines of code.
 
-Methods:
-
+Large Methods:
 ```java
-undoMove()
-public boolean playMove(String from, String to)
-moveTo()
-castle()
-promotePawn()
+undoMove();
+```
+```java
+public boolean playMove(String from, String to);
+```
+```java
+public Move moveTo(Cell from, Cell to);
+```
+```java
+private Move castle(King king, Cell to);
+```
+```java
+private Move promotePawn(Pawn pieceToMove, Cell from, Cell to);
+```
+```java
+private ArrayList<Cell> getRookMoves(Piece piece);
+private ArrayList<Cell> getBishopMoves(Piece piece);
+private ArrayList<Cell> getKnightMoves(Knight knight);
+private ArrayList<Cell> getKingMoves(King king);
+private ArrayList<Cell> getPawnMoves(Pawn pawn);
+```
+```java
+private ArrayList<Cell> recomputeMoves(Piece piece);
+```
+```java
+private Cell getCastlingMove(King king, String castleSide);
+```
+```java
+private boolean canCastle(King king, String castleSide);
+```
+```java
+public ArrayList<Cell> getAllMoves(Piece piece);
+```
+```java
+public boolean isCheckMate(String playerColour);
+```
+```java
+public boolean isUnderCheck(String playerColour);
+```
+```java
+private ArrayList<Cell> movesInDir( Piece piece, int rowDir, int colDir);
+```
+```java
+private void put(Piece piece, Cell cell);
+```
+```java
+public boolean isUnderAttack(Cell cell, String ownColour);
 ```
 
 ##### Graphics Handler
