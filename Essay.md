@@ -1,8 +1,11 @@
 # SWEN301ArchitectureProject - ChessMaster Project
 
+
+
 ## 1 Project Overview
 
-ChessMaster is a simple graphical chess game which can be played on a desktop.
+Repository: https://github.com/ravijoshiBITS/ChessMaster
+ChessMaster is a simple graphical chess game which can be played on a desktop. It features a basic AI for single player play.
 
 ### 1.1 Build Platform
 
@@ -48,6 +51,19 @@ These objects are essential to the basic functionality of the program, they crea
 
 ##### Game
 
+##### Movement
+This class handles most of the behaviour of the program. It's by far the largest class at over 900 lines of code.
+
+Methods:
+
+```java
+undoMove()
+public boolean playMove(String from, String to)
+moveTo()
+castle()
+promotePawn()
+```
+
 ##### Graphics Handler
 
 ##### AI
@@ -76,7 +92,6 @@ Used for storing data about a single square on the board
 | Boolean | Highlighted |
 
 ##### Move
-
 Used for storing data about a single move.
 
 | Type    | Name           |
@@ -92,6 +107,9 @@ Problems:
 * Most moves won't utilise the 'New Queen' field. There should be a 'PromotionMove' class extending this one which adds this field.
 * 'Move Type' shouldn't be a String, it should be an enumerated type. This would remove many oppurtunities for bugs and allow developers to see all the possible move types easily.
 * The name 'On Source' isn't very descriptive, it should be renamed 'Moving Piece'.
+
+##### Piece
+Used for storing data about a single piece. This is an abstract class and has a concrete class for each type of piece (King, Queen, Bishop, Knight, Rook and Pawn). This architecture has potiential to reduce the complexity of the program, but these piece-specific concrete classes do nothing other than change the 'toString()' method of the 'Piece' class.
 
 ### 2.2 Data Structures 
 
