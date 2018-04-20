@@ -48,40 +48,19 @@ These objects are essential to the basic functionality of the program, they crea
 This class handles most of the behaviour of the program. It's by far the largest class at over 900 lines of code. Lots of behaviour implemented in this class could be moved to other classes. Some of it's most important methods are:
 ```java
 undoMove();
-
 public boolean playMove(String from, String to);
-
 public Move moveTo(Cell from, Cell to);
-
 private Move castle(King king, Cell to);
-
 private Move promotePawn(Pawn pieceToMove, Cell from, Cell to);
 ```
+A major problem with this class is its size. If methods could be moved out of this class it would reduce the complexity of this class and of the program as a whole.
 
-Methods which could be moved:
-```java
-private ArrayList<Cell> getRookMoves(Piece piece);
+Potiential changes:
 
-private ArrayList<Cell> getBishopMoves(Piece piece);
+The methods which return lists of potiential moves for example `getKnightMoves(Knight knight)`, should be moved to their corresponding class. The 'Piece' class should have an abstract method `getMoves()`, and it would be implemented differently in each class which extends 'Piece'. The useful `movesInDir()` method could then be moved to the Piece class to be used by all the pieces. The `recomputeMoves()` and `getAllMoves()` methods then become unnecessary with this change.
 
-private ArrayList<Cell> getKnightMoves(Knight knight);
+The `canCastle()` and `getCastlingMove()` methods could then be incorporated into the King's `getMoves()` method as a special type of move.
 
-private ArrayList<Cell> getKingMoves(King king);
-
-private ArrayList<Cell> getPawnMoves(Pawn pawn);
-```
-These methods should be moved to their corresponding class. The 'Piece' class should have an abstract method 'getMoves()', and it would be implemented differently in each class which extends 'Piece'.
-
-
-```java
-private ArrayList<Cell> recomputeMoves(Piece piece);
-```
-```java
-private Cell getCastlingMove(King king, String castleSide);
-```
-```java
-private boolean canCastle(King king, String castleSide);
-```
 ```java
 public ArrayList<Cell> getAllMoves(Piece piece);
 ```
@@ -92,7 +71,7 @@ public boolean isCheckMate(String playerColour);
 public boolean isUnderCheck(String playerColour);
 ```
 ```java
-private ArrayList<Cell> movesInDir( Piece piece, int rowDir, int colDir);
+private ArrayList<Cell> movesInDir(Piece piece, int rowDir, int colDir);
 ```
 ```java
 private void put(Piece piece, Cell cell);
