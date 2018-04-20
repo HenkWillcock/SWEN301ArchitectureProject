@@ -45,7 +45,7 @@ These objects are essential to the basic functionality of the program, they crea
 ##### Game
 
 ##### Movement
-This class handles most of the behaviour of the program. It's by far the largest class at over 900 lines of code. Lots of behaviour implemented in this class could be moved to other classes. Some of it's most important methods are:
+This class handles most of the behaviour of the program. It's by far the largest class at over 900 lines of code. It has useful methods which do legal moves to the game. These are:
 ```java
 undoMove();
 public boolean playMove(String from, String to);
@@ -53,7 +53,8 @@ public Move moveTo(Cell from, Cell to);
 private Move castle(King king, Cell to);
 private Move promotePawn(Pawn pieceToMove, Cell from, Cell to);
 ```
-A major problem with this class is its size. If methods could be moved out of this class it would reduce the complexity of this class and of the program as a whole.
+
+A major problem with this class is its size. Lots of behaviour implemented in this class could potientially be moved to other classes. If methods could be moved out of this class it would reduce the complexity of this class and of the program as a whole.
 
 Potiential changes:
 
@@ -63,9 +64,11 @@ The `canCastle()` and `getCastlingMove()` methods could then be incorporated int
 
 ##### Graphics Handler
 
-The graphics handler is the front end of the program. It reads data from a reference to the board and draws a visual representation of it to the screen.
+The graphics handler is the front end of the program. It reads data from a reference to the board and draws a visual representation to the screen. A problem with this class is that it also handles the control of the game. A better way to do this would be to create a full model view controller by making this class purely for rendering from a model, and moving all other methods to either the model or controller.
 
 ##### AI
+
+A problem with this class is the minimax method which is incredibly large.
 
 #### 2.1.2 Data Storage Objects
 
