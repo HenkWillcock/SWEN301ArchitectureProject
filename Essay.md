@@ -34,13 +34,6 @@ ChessMaster is a simple GUI chess game. It features a basic MinMax AI for single
 
 ## 2 Project Design
 
-There are 2 packages. The Piece package provides all dummy pieces, their icons and unit-tests for their functionality. The chess package provides most of the functionality and unit-tests of the game. AI class plays against a human player in 1 player mode. Movement class handles movements of all pieces. Game and user classes retrieve and store respective statistics from files. The GUI functions are also handled. 
-
-The project has been documented using javadocs inline with the code.
-
-Currently known bugs are opened as issues on this repo. Please report any new 
-bugs or issues that you face.
-
 ### 2.1 Component Architecture
 
 #### 2.1.1 Core Objects
@@ -52,31 +45,34 @@ These objects are essential to the basic functionality of the program, they crea
 ##### Game
 
 ##### Movement
-This class handles most of the behaviour of the program. It's by far the largest class at over 900 lines of code.
-
-Large Methods:
+This class handles most of the behaviour of the program. It's by far the largest class at over 900 lines of code. Lots of behaviour implemented in this class could be moved to other classes. Some of it's most important methods are:
 ```java
 undoMove();
-```
-```java
+
 public boolean playMove(String from, String to);
-```
-```java
+
 public Move moveTo(Cell from, Cell to);
-```
-```java
+
 private Move castle(King king, Cell to);
-```
-```java
+
 private Move promotePawn(Pawn pieceToMove, Cell from, Cell to);
 ```
+
+Methods which could be moved:
 ```java
 private ArrayList<Cell> getRookMoves(Piece piece);
+
 private ArrayList<Cell> getBishopMoves(Piece piece);
+
 private ArrayList<Cell> getKnightMoves(Knight knight);
+
 private ArrayList<Cell> getKingMoves(King king);
+
 private ArrayList<Cell> getPawnMoves(Pawn pawn);
 ```
+These methods should be moved to their corresponding class. The 'Piece' class should have an abstract method 'getMoves()', and it would be implemented differently in each class which extends 'Piece'.
+
+
 ```java
 private ArrayList<Cell> recomputeMoves(Piece piece);
 ```
