@@ -61,26 +61,9 @@ The methods which return lists of potiential moves for example `getKnightMoves(K
 
 The `canCastle()` and `getCastlingMove()` methods could then be incorporated into the King's `getMoves()` method as a special type of move.
 
-```java
-public ArrayList<Cell> getAllMoves(Piece piece);
-```
-```java
-public boolean isCheckMate(String playerColour);
-```
-```java
-public boolean isUnderCheck(String playerColour);
-```
-```java
-private ArrayList<Cell> movesInDir(Piece piece, int rowDir, int colDir);
-```
-```java
-private void put(Piece piece, Cell cell);
-```
-```java
-public boolean isUnderAttack(Cell cell, String ownColour);
-```
-
 ##### Graphics Handler
+
+The graphics handler is the front end of the program. It reads data from a reference to the board and draws a visual representation of it to the screen.
 
 ##### AI
 
