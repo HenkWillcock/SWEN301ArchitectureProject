@@ -5,6 +5,7 @@
 ## 1 Project Overview
 
 Repository: https://github.com/ravijoshiBITS/ChessMaster
+
 ChessMaster is a simple graphical chess game which can be played on a desktop. It features a basic AI for single player play.
 
 ### 1.1 Build Platform
