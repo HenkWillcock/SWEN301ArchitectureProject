@@ -6,7 +6,7 @@
 
 Repository: https://github.com/ravijoshiBITS/ChessMaster
 
-ChessMaster is a simple graphical chess game which can be played on a desktop. It features a basic AI for single player play.
+ChessMaster is a simple graphical chess game which can be played on a desktop. It supports two player gameplay, and also features a basic minmax AI for single player play.
 
 ### 1.1 Build Platform
 
@@ -27,7 +27,9 @@ It might be a bit difficult to see because all the words overlap, but I've repla
 
 ### 1.3 Project History
 
-The ChessMaster repository was created in December 2017, along with an initial commit. ChessMaster was commited to regularly until March 2018, development then slowed down. The last commit was on March 12th, and it's unclear if their are any active commiters as of April 2018.
+The ChessMaster repository was created in December 2017, along with an initial commit. From December 16th until January 21st, core components and basic units tests were added. These components include classes for the various pieces, the board, the player, and the graphics handler. On January 24th there was a milestone commit which made two player gameplay possible. After this, the focus of development shifted to the AI. A simple minimax algorithm was completed on Febuary 2nd, which was refined over the coming weeks. On Febuary 11th, the core game rules were completed with the addition of castling, pawn promotion, and fixes to the checkmate checker. The last few features to be added were saving and loading of games, and an undo button.
+
+The last commit of code was on Febuary 22nd. On March 12th the developer added a README file, and hasn't commited since then. As of April, it is unclear whether development of ChessMaster is ongoing or the project has been discontinued.
 
 ### 1.4 Project Domain
 
