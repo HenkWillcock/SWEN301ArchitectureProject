@@ -33,7 +33,15 @@ The last commit of code was on Febuary 22nd. On March 12th the developer added a
 
 ### 1.4 Project Domain
 
-ChessMaster is a simple GUI chess game. It features a basic MinMax AI for single player games. ChessMaster is designed for offline use on a desktop or laptop machine. Because of this, it is limited by the hardware limitations of the particular machine it is running on. 
+ChessMaster is a game project for use by any chess player. 
+
+#### 1.4.1 Hardware
+
+ChessMaster is designed for offline use on a desktop or laptop machine. Because of this, it is limited by the hardware of the particular machine it is running on. ChessMaster isn't resource intensive however, almost all PCs and laptops would be able to run the program without problem, unless they are either very old or aren't functioning correctly.
+
+#### 1.4.2 Runtime Environment
+
+A real limitation of ChessMaster is that it's written in Java and requires the Java Runtime Environment (JRE) to run. Without the JRE there is simply no way to run the program. Most machines will have the JRE installed already, and if it's not installed it can be downloaded for free.
 
 ## 2 Project Design
 
@@ -48,7 +56,9 @@ These objects are essential to the basic functionality of the program, they crea
 ##### Game
 
 ##### Movement
+
 This class handles most of the behaviour of the program. It's by far the largest class at over 900 lines of code. It has useful methods which do legal moves to the game. These are:
+
 ```java
 undoMove();
 public boolean playMove(String from, String to);
