@@ -33,13 +33,17 @@ The last commit of code was on Febuary 22nd. On March 12th the developer added a
 
 ### 1.4 Project Domain
 
-ChessMaster is a game project for use by any chess player. 
+The domain of ChessMaster is gaming, or more specifically, board game simulation. The project doesn't feature a powerful AI, only a simple one, so it doesn't fall into the domain of chess engine. 
 
-#### 1.4.1 Hardware
+#### 1.4.1 Board Game Simulations
+
+Board game simulations are a popular type of game, despite the fact that most are based entirely on real life board games. This is interesting because it seems as though real life board games are cheaper and better experiences than a virtual ones. It's clear that board game simulations are popular however, and this is for a number of reasons. Firstly, if you already have a computer or smartphone, then the virtual version of a board game will be the cheaper option. The virtual version of a game will likely cost under $10, while the real board game could cost over $100. Secondly, virtual games are usually easier to learn because they can provide tutorials. The structure of gameplay is also built in, and doesn't need to be learnt to the same degree required by a real board game. Thirdly, virtual games remove disputes over the rules of a board game. Complicated board games often have edge cases, ambigous rules, or rule conflicts which might not be addressed anywhere in the rulebook. This can force board gamers to decide rules for themselves, and if players disagree there might not be a fair way to solve the problem. Virtual games solve this because the rules are built into the code. 
+
+#### 1.4.2 Hardware Domain
 
 ChessMaster is designed for offline use on a desktop or laptop machine. Because of this, it is limited by the hardware of the particular machine it is running on. ChessMaster isn't resource intensive however, almost all PCs and laptops would be able to run the program without problem, unless they are either very old or aren't functioning correctly.
 
-#### 1.4.2 Runtime Environment
+#### 1.4.3 Runtime Environment Domain
 
 A real limitation of ChessMaster is that it's written in Java and requires the Java Runtime Environment (JRE) to run. Without the JRE there is simply no way to run the program. Most machines will have the JRE installed already, and if it's not installed it can be downloaded for free.
 
