@@ -37,7 +37,17 @@ The domain of ChessMaster is gaming, or more specifically, board game simulation
 
 #### 1.4.1 Board Game Simulations
 
-Board game simulations are a popular type of game, despite the fact that most are based entirely on real life board games. This is interesting because it seems as though real life board games are cheaper and better experiences than a virtual ones. It's clear that board game simulations are popular however, and this is for a number of reasons. Firstly, if you already have a computer or smartphone, then the virtual version of a board game will be the cheaper option. The virtual version of a game will likely cost under $10, while the real board game could cost over $100. Secondly, virtual games are usually easier to learn because they can provide tutorials. The structure of gameplay is also built in, and doesn't need to be learnt to the same degree required by a real board game. Thirdly, virtual games remove disputes over the rules of a board game. Complicated board games often have edge cases, ambigous rules, or rule conflicts which might not be addressed anywhere in the rulebook. This can force board gamers to decide rules for themselves, and if players disagree there might not be a fair way to solve the problem. Virtual games solve this because the rules are built into the code. 
+Board game simulations are a popular type of game, despite the fact that most are based entirely on real life board games. This is interesting because it seems as though real life board games are cheaper and better experiences than a virtual ones. It's clear that board game simulations are popular however, and this is for a number of reasons. 
+
+If you already have a computer or smartphone, then the virtual version of a board game will be the cheaper option. The virtual version of a game will likely cost under $10, while the real board game could cost over $100. 
+
+Furthermore, virtual games are easier to learn because they can provide in game tutorials which teach users as they play. The structure of gameplay is also built in, and doesn't need to be learnt to the same degree required by a real board game. 
+
+In addition, virtual games remove disputes over the rules of a board game. Complicated board games often have edge cases, ambigous rules, or rule conflicts which might not be addressed anywhere in the rulebook. This can force board gamers to decide rules for themselves, and if players disagree there might not be a fair way to solve the problem. Virtual games solve this because the rules are built into the code.
+
+Also, virtual games can be more convenient because they remove the need for things like paper money, and can do calculations automatically. This is evident in the game monopoly. In a computer version of monopoly, when you land on a property owned by another player, the correct amount of rent is immediately transferred from your cash supply to the property owners cash supply. In the real version, players first have to check how much rent it is for the number of houses on the property. Then put together the amount using notes of various denominations, this will likely involved dividing large denominations into smaller ones.
+
+Perhaps the biggest reason board game simulations are so popular however, is AI computer opponents which allow players to play by themselves. The requirement of other players is a big barrier to playing board games. Solo play is very convenient because players can play anytime they want. They can take as long as want with their turns, while their opponents move immediately. They can easily save the game for later. And they can decide the difficulty of their opponents.
 
 #### 1.4.2 Hardware Domain
 
