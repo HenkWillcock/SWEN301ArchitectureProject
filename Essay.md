@@ -67,11 +67,17 @@ These objects are essential to the basic functionality of the program, they crea
 
 ##### Board
 
+This object represents the game board. Its main component is a 2D array of 'Cell' objects. It acts as the model component of a model view controller architecture. 
+
+A problem with this class is that it also handles some of the control of the game. It is sent mouse click information by another object which it then has to use to move pieces. If this responsibility was given to a new 'Controller' class it would significatly reduce the complexity of this 'Board' class. The 'Board' class would essentially become a data storage class only which is simple.
+
 ##### Game
+
+This object is a list of all the moves made so far in the game. It is used primarily for saving the game. Given the known starting position of chess game, the program can quickly perform all the moves listed in a 'Game' object in order to get back to the original position.
 
 ##### Movement
 
-This class handles most of the behaviour of the program. It's by far the largest class, at over 900 lines of code. It has useful methods which do legal moves to the game. These are:
+This class handles most of the behaviour of the program. It's the largest class, at over 900 lines of code. It has useful methods which do legal moves to the game. These are:
 
 ```java
 undoMove();
@@ -91,11 +97,17 @@ The `canCastle()` and `getCastlingMove()` methods could then be incorporated int
 
 ##### Graphics Handler
 
-The graphics handler is the front end of the program. It reads data from a reference to the board and draws a visual representation to the screen. A problem with this class is that it also handles the control of the game. A better way to do this is to create a full model view controller, by making this class purely for rendering the game from a model of the board. All the other methods would then be moved to either the model or controller.
+The graphics handler is the front end of the program. It reads data from a reference to the board and draws a visual representation to the screen. This includes highlighting the selected piece and highlighting in a different colour all the squares the piece can move to in the next turn.
+
+A problem with this class is that it also handles some of the control of the game. It has a 'Mouse Handler' object and a method `clicked(int x, int y)` which is called by the MouseHandler. The 'clicked' method takes the screen location of the mouse and determines which square has been clicked, it then tells this to the board. A better way to do this is to create a full model view controller, by making this class purely for rendering the game from a model of the board. All the other methods would then be moved to either the model or controller.
+
+##### Main
+
+This object is created in the `main()` method of the program, and handles all the GUI for setting up the chess game. This object also contains a Board object, a Game object, a Movement object and a Graphics Handler object. Its function is to  
 
 ##### AI
 
-A problem with this class is the minimax method which is incredibly large.
+This class is responsible for determining the next move for the computer player to do. It has only one important public method `playNextMove()`. This method utilises private methods to both determine the best next move and execute it. A problem with this class is the minimax method which is incredibly large.
 
 #### 2.1.2 Data Storage Objects
 
