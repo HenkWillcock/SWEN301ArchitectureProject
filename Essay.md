@@ -164,9 +164,29 @@ The 'Movement' class utilises a stack to store the past moves of the game which 
 
 #### 2.2.2 Board 2D Array
 
-The 'Board' class features a 2D array of 'Cell' objects which represents the game board.
+The 'Board' class features a 2D array of 'Cell' objects which represents the game board. This 2D array of the board is used by many other objects in the program. The graphics handler uses it to render the board. The 'Movement' object uses it to determine all the legal moves of a given piece. And the AI uses it to determine its next move.
+
+#### 2.2.3 Copy-On-Write Array List
+
+The 'Board' class features a 'CopyOnWriteArrayList' to store the various pieces, including the captured pieces. A CopyOnWriteArrayList is a thread safe variant of ArrayList. It achieves thread safety by having all mutative operations such as add and set create a fresh copy of the underlying array. This approach to dealing with thread concurrency has various costs associated with it. While it doesn't add any overhead when reading from the Array, it adds a large overhead when writing to it.
 
 ### 2.3 Testing
+
+#### 2.3.1 Board Tests
+
+These tests are for the 'Board' class and test its more complex methods.
+
+#### 2.3.2 Cell Tests
+
+These tests are for the 'Cell' class and test its more complex methods.
+
+#### 2.3.3 Move Tests
+
+These tests are for the 'Movement' class and test its more complex methods.
+
+#### 2.3.4 Piece Tests
+
+These tests are specific to each piece, there are several for each type of piece. These test various methods from the 'Piece' classes, such as the `toString()` method, `getMoves()` method, and the constructor of the piece.
 
 ### 2.4 Known Bugs
 
@@ -176,7 +196,7 @@ The 'Board' class features a 2D array of 'Cell' objects which represents the gam
 * In one player mode, at times, AI takes longer (up to 50 seconds) to play its move, and the human player's move is not shown on the board till the AI plays its move.
 The reason for this bug is unknown.
 
-### 3 Contributors
+## 3 Contributors
 
 * Ravishankar Joshi, for all the code and design of the project.
 * Anish Bhobe for some design decisions.
