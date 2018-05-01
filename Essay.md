@@ -61,21 +61,21 @@ A real limitation of ChessMaster is that it's written in Java and requires the J
 
 ### 2.1 Component Architecture
 
-#### 2.1.1 Core Objects
+##### Core Objects
 
 These objects are essential to the basic functionality of the program, they create the vast majority of the program's behaviour.
 
-##### Board
+#### 2.1.1 Board
 
 This object represents the game board. Its main component is a 2D array of 'Cell' objects. It acts as the model component of a model view controller architecture. 
 
 A problem with this class is that it also handles some of the control of the game. It is sent mouse click information by another object which it then has to use to move pieces. If this responsibility was given to a new 'Controller' class it would significatly reduce the complexity of this 'Board' class. The 'Board' class would essentially become a data storage class only which is simple.
 
-##### Game
+#### 2.1.2 Game
 
-This object is a list of all the moves made so far in the game. It is used primarily for saving the game. Given the known starting position of chess game, the program can quickly perform all the moves listed in a 'Game' object in order to get back to the original position.
+This object is used primarily for saving the game. It has a method which can utilise the stack of moves stored in the 'Movement' object and save them to file. Given the known starting position of chess game, the program can quickly perform all the moves listed in order to get back to the position of the saved game.
 
-##### Movement
+#### 2.1.3 Movement
 
 This class handles most of the behaviour of the program. It's the largest class, at over 900 lines of code. It has useful methods which do legal moves to the game. These are:
 
@@ -95,25 +95,26 @@ The methods which return lists of potential moves for example `getKnightMoves(Kn
 
 The `canCastle()` and `getCastlingMove()` methods could then be incorporated into the King's `getMoves()` method as a special type of move.
 
-##### Graphics Handler
+#### 2.1.4 Graphics Handler
 
 The graphics handler is the front end of the program. It reads data from a reference to the board and draws a visual representation to the screen. This includes highlighting the selected piece and highlighting in a different colour all the squares the piece can move to in the next turn.
 
 A problem with this class is that it also handles some of the control of the game. It has a 'Mouse Handler' object and a method `clicked(int x, int y)` which is called by the MouseHandler. The 'clicked' method takes the screen location of the mouse and determines which square has been clicked, it then tells this to the board. A better way to do this is to create a full model view controller, by making this class purely for rendering the game from a model of the board. All the other methods would then be moved to either the model or controller.
 
-##### Main
+#### 2.1.5 Main
 
 This object is created in the `main()` method of the program, and handles all the GUI for setting up the chess game. This object also contains a Board object, a Game object, a Movement object and a Graphics Handler object. Its function is to  
 
-##### AI
+#### 2.1.6 AI
 
 This class is responsible for determining the next move for the computer player to do. It has only one important public method `playNextMove()`. This method utilises private methods to both determine the best next move and execute it. A problem with this class is the minimax method which is incredibly large.
 
-#### 2.1.2 Data Storage Objects
+##### Data Storage Objects
 
 These components don't have many methods beyond getters and setters and are primarily used for storing information about various aspects of the chess game.
 
-##### Player
+#### 2.1.7 Player
+
 Used for storing player data such as name, wins, losses and total games played.
 
 | Type    | Name         |
@@ -123,7 +124,8 @@ Used for storing player data such as name, wins, losses and total games played.
 | Integer | Games Won    |
 | Integer | Games Lost   |
 
-##### Cell
+#### 2.1.8 Cell
+
 Used for storing data about a single square on the board
 
 | Type    | Name        |
@@ -132,7 +134,8 @@ Used for storing data about a single square on the board
 | Integer | Column      |
 | Boolean | Highlighted |
 
-##### Move
+#### 2.1.9 Move
+
 Used for storing data about a single move.
 
 | Type    | Name           |
@@ -149,10 +152,19 @@ Problems:
 * 'Move Type' shouldn't be a String, it should be an enumerated type. This would remove many opportunities for bugs and allow developers to see all the possible move types easily.
 * The name 'On Source' isn't very descriptive, it should be renamed 'Moving Piece'.
 
-##### Piece
+#### 2.1.10 Piece
+
 Used for storing data about a single piece. This is an abstract class and has a concrete class for each type of piece (King, Queen, Bishop, Knight, Rook, and Pawn). This architecture has potential to reduce the complexity of the program, but these piece-specific concrete classes do nothing other than change the 'toString()' method of the 'Piece' class.
 
 ### 2.2 Data Structures 
+
+#### 2.2.1 Game Moves Stack
+
+The 'Movement' class utilises a stack to store the past moves of the game which it uses to undo moves. This is useful because it only allows the program to access the most recent move, the one it will be undoing. After this move has been undone it can then access the move underneath it in the stack and so on.
+
+#### 2.2.2 Board 2D Array
+
+The 'Board' class features a 2D array of 'Cell' objects which represents the game board.
 
 ### 2.3 Testing
 
