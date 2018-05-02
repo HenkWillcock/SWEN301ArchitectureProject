@@ -6,7 +6,7 @@
 
 Repository: https://github.com/ravijoshiBITS/ChessMaster
 
-ChessMaster is a simple graphical chess game which can be played on a desktop. It supports two-player gameplay and also features a basic minimax AI for single player play. 
+ChessMaster is a simple graphical chess game which can be played on a desktop. It supports two-player gameplay and also features a basic minimax AI for single player play.
 
 ### 1.1 Build Platform
 
@@ -37,27 +37,29 @@ The domain of ChessMaster is gaming, or more specifically, board game simulation
 
 #### 1.4.1 Board Game Simulations
 
-Board game simulations are a popular type of game, despite the fact that most are based entirely on real-life board games. This is interesting because it seems as though real life board games are cheaper and better experiences than virtual ones. It's clear that board game simulations are popular, however, and this is for a number of reasons. 
+Board game simulations are a popular type of game, despite the fact that most are based entirely on real-life board games. This is interesting because it seems as though real life board games are cheaper and better experiences than virtual ones. It's clear that board game simulations are popular, however, and this is for several reasons. 
 
-If you already have a computer or smartphone, then the virtual version of a board game will be the cheaper option. The virtual version of a game will likely cost under $10, while the real board game could cost over $100. 
+If you already have a computer or smartphone, then the virtual version of a board game will be the cheaper option. The virtual version of a game will usually cost under $10, while the real board game could cost over $100.
 
 Furthermore, virtual games are easier to learn because they can provide in-game tutorials which teach users as they play. The structure of gameplay is also built in and doesn't need to be learnt to the same degree required by a real board game. 
 
 In addition, virtual games remove disputes over the rules of a board game. Complicated board games often have edge cases, ambiguous rules, or rule conflicts which might not be addressed anywhere in the rulebook. This can force board gamers to decide rules for themselves, and if players disagree there might not be a fair way to solve the problem. Virtual games solve this because the rules are built into the code.
 
-Also, virtual games can be more convenient because they remove the need for things like paper money, and can do calculations automatically. This is evident in the game monopoly. In a computer version of monopoly, when you land on a property owned by another player, the correct amount of rent is immediately transferred from your cash supply to the property owners cash supply. In the real version, players first have to check how much rent it is for the number of houses on the property. Then put together the amount using notes of various denominations, this will likely involve dividing large denominations into smaller ones.
+Also, virtual games can be more convenient because they remove the need for things like paper money, and can do calculations automatically. This is evident in the game monopoly. In a computer version of monopoly, when you land on a property owned by another player, the correct amount of rent is immediately transferred from your cash supply to the property owners cash supply. In the real version, players first have to check how much rent it is for the number of houses on the property. Then put together the amount using notes of various denominations, this may involve dividing large denominations into smaller ones.
 
-Perhaps the biggest reason board game simulations are so popular, however, is AI computer opponents which allow players to play by themselves. The requirement of other players is a big barrier to playing board games. Solo play is very convenient because players can play anytime they want. They can take as long as want with their turns, while their opponents move immediately. They can easily save the game for later. And they can decide the difficulty of their opponents.
+Perhaps the biggest reason board game simulations are so popular, however, is AI computer opponents which allow players to play by themselves. The requirement of other players is a big barrier to playing board games. Solo play is convenient because players can play anytime they want. They can take as long as want with their turns, while their opponents move immediately. They can easily save the game for later. And they can decide the difficulty of their opponents. AI opponents in games can often feel unrealistic and beating them might not be rewarding, so many board game simulators allow for online play against either friends or random players. This allows for real life human gameplay and is more rewarding to win because players know they have beaten a real life opponent.
 
-#### 1.4.2 Hardware Domain
+#### 1.4.2 Platform Domain
 
-ChessMaster is designed for offline use on a desktop or laptop machine. Because of this, it is limited by the hardware of the particular machine it is running on. ChessMaster isn't resource-intensive, however, almost all PCs and laptops would be able to run the program without problem, unless they are either very old or aren't functioning correctly.
+ChessMaster is designed for offline use on a desktop or laptop machine. Because of this, it is limited by the hardware of the particular machine it is running on. ChessMaster isn't resource-intensive, however, almost all PCs and laptops would be able to run the program without problem, unless they are either over ten years old or aren't functioning correctly.
+
+ChessMaster doesn't allow for online play, which could potientially be a popular feature of the program. It would provide an alternate to playing against an AI opponent, which can often feel unrealistic and repetitive. It would also allow friends to play each other over the web which is convenient.
 
 #### 1.4.3 Runtime Environment Domain
 
-A real limitation of ChessMaster is that it's written in Java and requires the Java Runtime Environment (JRE) to run. Without the JRE there is simply no way to run the program. Most machines will have the JRE installed already, and if it's not installed it can be downloaded for free. 
+A real limitation of ChessMaster is that it's written in Java and requires the Java Runtime Environment (JRE) to run. Without the JRE there is simply no way to execute the program. This isn't a big issue however, most machines will have the JRE installed already, and if it's not installed it can be downloaded for free.
 
-Being a jar file does mean ChessMaster is currently incompatible with the web, mobile devices and tablets. Both of which are platforms where games are very popular. This is made evident by the website and mobile app 'Chess.com', which can be found here: https://www.chess.com/. This website allows online play against friends, and also against random, equally-skilled opponents.
+Being a jar file means ChessMaster is currently incompatible with web browsers, mobile devices, and tablets. All of which are platforms where games are popular. This is made evident by the website and mobile app 'Chess.com', which can be found here: https://www.chess.com/. This website and app allows for cross-platform online play against friends, and also against random, equally-skilled opponents. Chess.com is popular with over 15 million members.
 
 ## 2 Project Design
 
@@ -65,7 +67,7 @@ Being a jar file does mean ChessMaster is currently incompatible with the web, m
 
 ##### Core Objects
 
-These objects are essential to the basic functionality of the program, they create the vast majority of the program's behaviour.
+These objects are essential to the basic functionality of ChessMaster. They implement the vast majority of the program's behaviour.
 
 #### 2.1.1 Board
 
@@ -152,7 +154,7 @@ Used for storing data about a single move.
 Problems:
 * Most moves won't utilise the 'New Queen' field. There should be a 'PromotionMove' class extending this one which adds this field.
 * 'Move Type' shouldn't be a String, it should be an enumerated type. This would remove many opportunities for bugs and allow developers to see all the possible move types easily.
-* The name 'On Source' isn't very descriptive, it should be renamed 'Moving Piece'.
+* The name 'On Source' isn't descriptive, it should be renamed 'Moving Piece'.
 
 #### 2.1.10 Piece
 
