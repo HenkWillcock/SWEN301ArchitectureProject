@@ -65,7 +65,7 @@ Being a jar file means ChessMaster is currently incompatible with web browsers, 
 
 ### 2.1 Component Architecture
 
-##### Core Objects
+##### *Core Objects*
 
 These objects are essential to the basic functionality of ChessMaster. They implement the vast majority of the program's behaviour.
 
@@ -113,7 +113,7 @@ This object is created in the `main()` method of the program, and handles all th
 
 This class is responsible for determining the next move for the computer player to do. It has only one important public method `playNextMove()`. This method utilises private methods to both determine the best next move and execute it. A problem with this class is the minimax method which is incredibly large.
 
-##### Data Storage Objects
+##### *Data Storage Objects*
 
 These components don't have many methods beyond getters and setters and are primarily used for storing information about various aspects of the chess game.
 
