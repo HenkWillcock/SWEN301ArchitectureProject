@@ -55,7 +55,9 @@ ChessMaster is designed for offline use on a desktop or laptop machine. Because 
 
 #### 1.4.3 Runtime Environment Domain
 
-A real limitation of ChessMaster is that it's written in Java and requires the Java Runtime Environment (JRE) to run. Without the JRE there is simply no way to run the program. Most machines will have the JRE installed already, and if it's not installed it can be downloaded for free.
+A real limitation of ChessMaster is that it's written in Java and requires the Java Runtime Environment (JRE) to run. Without the JRE there is simply no way to run the program. Most machines will have the JRE installed already, and if it's not installed it can be downloaded for free. 
+
+Being a jar file does mean ChessMaster is currently incompatible with the web, mobile devices and tablets. Both of which are platforms where games are very popular. This is made evident by the website and mobile app 'Chess.com', which can be found here: https://www.chess.com/. This website allows online play against friends, and also against random, equally-skilled opponents.
 
 ## 2 Project Design
 
