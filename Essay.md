@@ -107,11 +107,15 @@ A problem with this class is that it also handles some of the control of the gam
 
 #### 2.1.5 Main
 
-This object is created in the `main()` method of the program, and handles all the GUI for setting up the chess game. This object also contains a Board object, a Game object, a Movement object and a Graphics Handler object. Its function is to  
+This object is the only object created by the `main()` method of the program. It handles all the GUI for setting up the chess game. First it allows choosing between a 1-player and 2-player game, and choosing which colour to play as in a solo game. It also allows the creation of a player save file, or the selection of a previously created one. The player save files feature a username which is displayed in-game, and a record of wins, losses and draws.
+
+The 'Main' object contains fields for a Board object, a Game object, a Movement object, and a Graphics Handler object. When the game is initialised it creates instances of all of these and connects them together in the appropriate way. For example it gives the graphics handler a reference to the board so it can render it to the screen after every move. One the game begins the Main class has no further function until the game ends.
 
 #### 2.1.6 AI
 
-This class is responsible for determining the next move for the computer player to do. It has only one important public method `playNextMove()`. This method utilises private methods to both determine the best next move and execute it. A problem with this class is the minimax method which is incredibly large.
+This class is responsible for determining the next move for the computer player to do. It only has one important public method `playNextMove()`. This method utilises private methods to both determine the next move and execute it. This is great encaptulation because almost all of the AI class is internal. This means interacting with the 'AI' class is very simple because there is only one method to worry about which has a clear purpose. This encaptulation also allows the developer to change the AI class completely, as long as they keep the `playNextMove()` method.
+
+A problem with the 'AI' class is the `minimax()` method, which is incredibly large. The method is over 100 lines long and contains very complex nested loops and logic. This complexity makes alterations to the method difficult, especially for outside developers.
 
 ##### *Data Storage Objects*
 
