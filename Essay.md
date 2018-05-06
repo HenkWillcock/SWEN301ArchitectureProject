@@ -67,7 +67,7 @@ Being a jar file means ChessMaster is currently incompatible with web browsers, 
 
 ##### *UML Diagram*
 
-<img src="https://github.com/HenkWillcock/SWEN301ArchitectureProject/blob/master/301.png" alt="screen shot" width="400px"/>
+<img src="https://github.com/HenkWillcock/SWEN301ArchitectureProject/blob/master/301.png" alt="screen shot" width="923px"/>
 
 ##### *Core Objects*
 
