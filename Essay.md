@@ -65,6 +65,10 @@ Being a jar file means ChessMaster is currently incompatible with web browsers, 
 
 ### 2.1 Component Architecture
 
+##### *UML Diagram*
+
+<img src="https://github.com/HenkWillcock/SWEN301ArchitectureProject/blob/master/301.PNG" alt="screen shot" width="400px"/>
+
 ##### *Core Objects*
 
 These objects are essential to the basic functionality of ChessMaster. They implement the vast majority of the program's behaviour.
