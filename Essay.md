@@ -65,25 +65,25 @@ Being a jar file means ChessMaster is currently incompatible with web browsers, 
 
 ### 2.1 Component Architecture
 
-##### *UML Diagram*
+#### 2.1.1 UML Diagram
 
 <img src="https://github.com/HenkWillcock/SWEN301ArchitectureProject/blob/master/class_diagram.png" alt="screen shot"/>
 
-##### *Core Objects*
+#### 2.1.2 Core Objects
 
 These objects are essential to the basic functionality of ChessMaster. They implement the vast majority of the program's behaviour.
 
-#### 2.1.1 Board
+##### *Board*
 
 This object represents the game board. Its main component is a 2D array of 'Cell' objects. It acts as the model component of a model view controller architecture. 
 
 A problem with this class is that it also handles some of the control of the game. It is sent mouse click information by another object which it then has to use to move pieces. If this responsibility was given to a new 'Controller' class it would significatly reduce the complexity of this 'Board' class. The 'Board' class would essentially become a data storage class only which is simple.
 
-#### 2.1.2 Game
+##### *Game*
 
 This object is used primarily for saving the game. It has a method which can utilise the stack of moves stored in the 'Movement' object and save them to file. Given the known starting position of chess game, the program can quickly perform all the moves listed in order to get back to the position of the saved game.
 
-#### 2.1.3 Movement
+##### *Movement*
 
 This class handles most of the behaviour of the program. It's the largest class, at over 900 lines of code. It has useful methods which do legal moves to the game. These are:
 
@@ -103,29 +103,29 @@ The methods which return lists of potential moves for example `getKnightMoves(Kn
 
 The `canCastle()` and `getCastlingMove()` methods could then be incorporated into the King's `getMoves()` method as a special type of move.
 
-#### 2.1.4 Graphics Handler
+##### *Graphics Handler*
 
 The graphics handler is the front end of the program. It reads data from a reference to the board and draws a visual representation to the screen. This includes highlighting the selected piece and highlighting in a different colour all the squares the piece can move to in the next turn.
 
 A problem with this class is that it also handles some of the control of the game. It has a 'Mouse Handler' object and a method `clicked(int x, int y)` which is called by the MouseHandler. The 'clicked' method takes the screen location of the mouse and determines which square has been clicked, it then tells this to the board. A better way to do this is to create a full model view controller, by making this class purely for rendering the game from a model of the board. All the other methods would then be moved to either the model or controller.
 
-#### 2.1.5 Main
+##### *Main*
 
 This object is the only object created by the `main()` method of the program. It handles all the GUI for setting up the chess game. First it allows choosing between a 1-player and 2-player game, and choosing which colour to play as in a solo game. It also allows the creation of a player save file, or the selection of a previously created one. The player save files feature a username which is displayed in-game, and a record of wins, losses and draws.
 
 The 'Main' object contains fields for a Board object, a Game object, a Movement object, and a Graphics Handler object. When the game is initialised it creates instances of all of these and connects them together in the appropriate way. For example it gives the graphics handler a reference to the board so it can render it to the screen after every move. One the game begins the Main class has no further function until the game ends.
 
-#### 2.1.6 AI
+##### *AI*
 
 This class is responsible for determining the next move for the computer player to do. It only has one important public method `playNextMove()`. This method utilises private methods to both determine the next move and execute it. This is great encaptulation because almost all of the AI class is internal. This means interacting with the 'AI' class is very simple because there is only one method to worry about which has a clear purpose. This encaptulation also allows the developer to change the AI class completely, as long as they keep the `playNextMove()` method.
 
 A problem with the 'AI' class is the `minimax()` method, which is incredibly large. The method is over 100 lines long and contains very complex nested loops and logic. This complexity makes alterations to the method difficult, especially for outside developers.
 
-##### *Data Storage Objects*
+#### 2.1.3 Data Storage Objects
 
 These components don't have many methods beyond getters and setters and are primarily used for storing information about various aspects of the chess game.
 
-#### 2.1.7 Player
+##### *Player*
 
 Used for storing player data such as name, wins, losses and total games played.
 
@@ -136,7 +136,7 @@ Used for storing player data such as name, wins, losses and total games played.
 | Integer | Games Won    |
 | Integer | Games Lost   |
 
-#### 2.1.8 Cell
+##### *Cell*
 
 Used for storing data about a single square on the board
 
@@ -146,7 +146,7 @@ Used for storing data about a single square on the board
 | Integer | Column      |
 | Boolean | Highlighted |
 
-#### 2.1.9 Move
+##### *Move*
 
 Used for storing data about a single move.
 
@@ -164,7 +164,7 @@ Problems:
 * 'Move Type' shouldn't be a String, it should be an enumerated type. This would remove many opportunities for bugs and allow developers to see all the possible move types easily.
 * The name 'On Source' isn't descriptive, it should be renamed 'Moving Piece'.
 
-#### 2.1.10 Piece
+##### *Piece*
 
 Used for storing data about a single piece. This is an abstract class and has a concrete class for each type of piece (King, Queen, Bishop, Knight, Rook, and Pawn). This architecture has potential to reduce the complexity of the program, but these piece-specific concrete classes do nothing other than change the 'toString()' method of the 'Piece' class.
 
