@@ -21,3 +21,15 @@ If the above change can be completed, then I also want to move the methods which
 If these changes can both be completed I'd also like to look into changing how the game checks for checkmate. At first glance it seems like the game handles this very poorly with lots of spaghetti code and bugs. I won't spend time looking into this until I've completed one of the other changes first.
 
 ## 3 Evaluation
+
+The original change of simplifying the movement I wanted to do proved to be too difficult. The code is simply too coupled to itself and it was too difficult to extract the required information out of the poorly written 'Movement' class. The first problem I ran into is that Pieces don't have a field for their location. Instead to get this information you have to use a map stored only in the 'Movement' class. I first attempted to add a field for the piece's location, but to get this to work I had to make modifications to many other parts of the program until it ended up being counter productive, I had only succeeded in making the program even more complex. 
+
+The second workaround I tried was to give the pieces a reference to the 'Movement' class, so they could use it's Map to figure out their location on the board. This also proved to be more difficult than it first appeared. It was difficult when initialising the program to give the pieces references to the 'Movement' object because of some hard to explain design choices. I finally did get this too work but soon discovered more issues, mostly with the `movesInDir()` method which also required fields only present in the 'Movement' class such as a reference to the board.
+
+I soon realised that even if I got the change to work, it wouldn't reduce complexity in the way I had hoped. I then decided to start from scratch on a new change, the second one I proposed, adding a controller class and taking that functionality away from the 'GraphicsHandler' object.
+
+## 4 Second Description 
+
+
+
+
