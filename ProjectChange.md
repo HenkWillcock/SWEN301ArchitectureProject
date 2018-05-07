@@ -30,6 +30,8 @@ I soon realised that even if I got the change to work, it wouldn't reduce comple
 
 ## 4 Second Description 
 
+## 5 Second Evaluation
 
+This change was relatively easy to implement, and it mostly achieved its goal of taking functionality off the GraphicsHandler class so that all it did was handle the graphics. I wasn't able to move the actual mouse listener out of the GraphicsHandler class however, it had to be in this class because it is the JFrame which draws everything which also has the focus in this program. The clicked method in the GraphicsHandler now just calls the clicked event in the Controller.
 
 
