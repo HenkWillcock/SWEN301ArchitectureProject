@@ -14,7 +14,7 @@ Right now the `GraphicsHandler` object handles the control of the program, makin
 
 ## 2 Simplifying 'Movement' Class
 
-Out of the proposed changes to ChessMaster, the best in my opionion is the first option of simplifying the `Movement` class. There are pros and cons of the others but I think the `Movement` class is so complex that reducing its complexity will be very valueable to the developers of ChessMaster. I also don't think this change will be too difficult to implement.
+Out of the proposed changes to ChessMaster, the best in my opinion is the first option of simplifying the `Movement` class. There are pros and cons of the others but I think the `Movement` class is so complex that reducing its complexity will be very valueable to the developers of ChessMaster. I also don't think this change will be too difficult to implement.
 
 ### 2.1 Planning
 
@@ -38,7 +38,7 @@ I soon realised that even if I got the change to work, it wouldn't reduce comple
 
 ## 3 Building Model View Controller
 
-After the first attempt at a change failed a second option was completed instead. This second changed was to add a `Controller` class to the program and complete a full Model-View-Controller architecture.
+After the first attempt at a change failed a second option was completed instead. This second change was to add a `Controller` class to the program and complete a full Model-View-Controller architecture.
 
 ### 3.1 Planning
 
