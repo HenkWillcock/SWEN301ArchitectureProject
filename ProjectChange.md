@@ -6,7 +6,7 @@ The purpose of this change is to simplify the cluttered 'Movement' class by movi
 
 ### 1.2 Build Full Model-View-Controller Architecture
 
-Right now the graphics handler handles the control of the program, making it quite a large and complex class. Adding a controller class to the program and simplifying the graphics handler to just handle the graphics and nothing else would subtantially reduce the complexity of this class. It would also mean the program uses a well-known architecture making it easier for other developers to develop ChessMaster.
+Right now the Graphics Handler handles the control of the program, making it quite a large and unnecessarily complex class. Adding a 'Controller' class to the program and simplifying the 'Graphics Handler' to just handle the graphics and nothing else would subtantially reduce the complexity of this class. It would also mean the program uses a well-known architecture making it easier for other developers to develop ChessMaster.
 
 ### 1.3 Chosen Change
 
@@ -14,24 +14,37 @@ Out of these options, the best in my opionion is the first option of simplifying
 
 ## 2 Description
 
-The methods which return lists of potential moves for example `getKnightMoves(Knight knight)`, should be moved to their corresponding class. The 'Piece' class will then be given an abstract method `getMoves()`. This method will then be implemented differently in each class which extends 'Piece'. The `movesInDir()` method which is passed a piece and a vector and returns all the moves available in that particular direction, will be moved to the Piece class to be used by all the pieces. The middle management method `recomputeMoves()` then become unnecessary with this change, further reducing complexity.
+To move functionality out of the 'Movement' class and into the 'Piece' classes seems relatively simple, however it seems likely I'll run into complications because of spaghetti code. The methods which return lists of potential moves for example `getKnightMoves(Knight knight)`, will be moved to their corresponding class. The 'Piece' class will then be given an abstract method `getMoves()`. This method will then be implemented differently in each class which extends 'Piece'. The `movesInDir()` method which is passed a piece and a vector and returns all the moves available in that particular direction, will be moved to the Piece class to be used by all the pieces. The middle management method `recomputeMoves()` then become unnecessary with this change, further reducing complexity.
+
+Using agile software development techniques, I'll attempt to do this change to the program without a highly detailed plan. If it's discovered that there are issues with my high-level plan, revisions will be made, and workarounds will be used as necessary.
 
 If the above change can be completed, then I also want to move the methods which perform special moves out of the 'Movement' class. These methods are `canCastle()`, `getCastlingMove()` and `promotePawn()`. The `canCastle()` and `getCastlingMove()` methods will be incorporated into the King's `getMoves()` method as a special type of move. And `promotePawn()` will be incorporated into the Pawn's `getMoves()` method.
 
 If these changes can both be completed I'd also like to look into changing how the game checks for checkmate. At first glance it seems like the game handles this very poorly with lots of spaghetti code and bugs. I won't spend time looking into this until I've completed one of the other changes first.
 
-## 3 Evaluation
+## 3 Evaluation of Simplifying 'Movement' Class
 
-The original change of simplifying the movement I wanted to do proved to be too difficult. The code is simply too coupled to itself and it was too difficult to extract the required information out of the poorly written 'Movement' class. The first problem I ran into is that Pieces don't have a field for their location. Instead to get this information you have to use a map stored only in the 'Movement' class. I first attempted to add a field for the piece's location, but to get this to work I had to make modifications to many other parts of the program until it ended up being counter productive, I had only succeeded in making the program even more complex. 
+The original change of simplifying the 'Movement' class I wanted to do proved to be too difficult. The code is simply too coupled to itself and it was too difficult to extract the required information out of the poorly written 'Movement' class. The first problem I ran into is that Pieces don't have a field for their location. Instead to get this information you have to use a map stored only in the 'Movement' class. I first attempted to add a field for the piece's location, but to get this to work I had to make modifications to many other parts of the program until it ended up being counter productive, I had only succeeded in making the program even more complex. 
 
-The second workaround I tried was to give the pieces a reference to the 'Movement' class, so they could use it's Map to figure out their location on the board. This also proved to be more difficult than it first appeared. It was difficult when initialising the program to give the pieces references to the 'Movement' object because of some hard to explain design choices. I finally did get this too work but soon discovered more issues, mostly with the `movesInDir()` method which also required fields only present in the 'Movement' class such as a reference to the board.
+The second workaround I tried was to give the pieces a reference to the 'Movement' class, so they could use it's map to figure out their location on the board. This also proved to be more difficult than it first appeared. It was difficult when initialising the program to give the pieces references to the 'Movement' object because the pieces are created by the 'Board' object, not the 'Main' object. This seems like it might not be a problem because the 'Board' has a reference to a 'Movement' class, however it's not the same 'Movement' object as the one stored by 'Main', the one with the map of pieces on it. I finally did get this to work, but soon discovered more issues. One such issue was with the `movesInDir()` method, which also required fields only present in the 'Movement' class such as a reference to the 'Board'.
 
 I soon realised that even if I got the change to work, it wouldn't reduce complexity in the way I had hoped. I then decided to start from scratch on a new change, the second one I proposed, adding a controller class and taking that functionality away from the 'GraphicsHandler' object.
 
-## 4 Second Description 
+## 4 Second Description
 
-## 5 Second Evaluation
 
-This change was relatively easy to implement, and it mostly achieved its goal of taking functionality off the GraphicsHandler class so that all it did was handle the graphics. I wasn't able to move the actual mouse listener out of the GraphicsHandler class however, it had to be in this class because it is the JFrame which draws everything which also has the focus in this program. The clicked method in the GraphicsHandler now just calls the clicked event in the Controller.
 
+## 5 Evaluation of Building Model View Controller
+
+This change was relatively easy to implement, and it mostly achieved its goal of taking functionality off the GraphicsHandler class so that all it did was handle the graphics. To give some numbers on the simplification of 'GraphicsHandler', it was previously 280 lines of code with 6 methods. Now it's 200 lines of code with just 2 methods. 
+
+Rather than moving the 'MouseHandler' to the new 'Controller' class, it turned out to be easier to leave the 'MouseListener' in the 'GraphicsHandler' class. This meant it automatically returned a mouse location on the board on click, rather than a mouse . But all the mouse listener does is call the method 'clicked'. The clicked method in the GraphicsHandler now just calls the clicked event in the Controller which updates the model, then the GraphicsHandler updates its graphics. I would have renamed the 'GraphicsHandler' class to something more descriptive, but Eclipse was having issues so I wasn't able to do this automatically. 
+
+All the JUnit tests still pass with the change. 
+
+## 6 Simplifying PaintComponent Method
+
+With the 'GraphicsHandler' class simplified, it opened the oppurtunity to split up the large 'paintComponent()' method. This method is very large at almost 100 lines of code, and it seems relatively straight forward to extract some methods out of it and have them as private methods inside the 'GraphicsHandler'.
+
+First, methods were created for drawing the axis labels of the chess board. Previously these were meshed in with the drawing of the board's cells making the code difficult to understand. Second, I went through and removed useless comments which did nothing but repeat the code underneath them. Next, I created the methods 'drawWhiteCell()', 'drawGreyCell()', 'highlightCellIfNecessary()', and 'drawPiece()'. Compared with the original method, these are very concise, easy to understand methods with descriptive titles. These methods were used to build the 'drawCompleteCell()' method, and only this method was used in the 'paintComponent()' method. The 'paintComponent()' method is now only 8 lines long and is very readable, its complexity being abstracted away by these new methods.
 
