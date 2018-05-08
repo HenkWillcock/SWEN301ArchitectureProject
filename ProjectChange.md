@@ -28,7 +28,7 @@ If the above change can be completed, then I also want to move the methods which
 
 If these changes can both be completed I'd also like to look into changing how the game checks for checkmate. At first glance it seems like the game handles this very poorly with lots of spaghetti code and bugs. I won't spend time looking into this until I've completed one of the other changes first.
 
-### 2.3 After Completion
+### 2.3 After Attempting Implementing Change
 
 The original change of simplifying the `Movement` class I wanted to do proved to be too difficult. The code is simply too coupled to itself and it was too difficult to extract the required information out of the poorly written 'Movement' class. The first problem I ran into is that Pieces don't have a field for their location. Instead to get this information you have to use a map stored only in the `Movement` class. I first attempted to add a field for the piece's location, but to get this to work I had to make modifications to many other parts of the program until it ended up being counter productive, I had only succeeded in making the program even more complex. 
 
@@ -42,11 +42,13 @@ After the first attempt at a change failed a second option was completed instead
 
 ### 3.1 Planning
 
-The main goal here is to move the `MouseHandler` out of the `GraphicsHandler` and into a new class, `Controller`. After this all the methods associated with the `MouseHandler` will also be moved to this new class. The first of these methods is `clicked()`, which handles all the click events produced by the `MouseHandler`. This method in turn calls the methods `check()`, `checkMate()`, and `isUnderCheck`, so these will also be moved to the new `Controller` class.
+The main goal here is to move the `MouseHandler` out of the `GraphicsHandler` and into a new class, `Controller`. After this, all the methods associated with the `MouseHandler` will also be moved to this new class. The first of these methods is `clicked()`, which handles all the click events produced by the `MouseHandler`. This method in turn calls the methods `check()`, `checkMate()`, and `isUnderCheck`, so these will also be moved to the new `Controller` class.
 
-It is also logical to move the `AI` field out of the `GraphicsHandler` into the `Controller`, ideally this would be handled by another new class, but time is limited. The `AI` class in ChessMaster actually clicks the board like a human player would to move pieces. This seems like a poor way of handling things, but to change it would be very time consuming. One possible solution here would be for the `AI` class to simply return the best move, and the actual execution of the move is handled by the `Main` class which keeps track of turns. After moving the `AI` field into the `Controller`, the methods associated with it will also be moved. These methods are `setGameMode()` and `setAI()`.
+It is also logical to move the `AI` field out of the `GraphicsHandler` into the `Controller`. This field is used to prompt the `AI` object to perform a move. This should be handled by another new class, but time is limited so it'll be left as is. After moving the `AI` field into the `Controller`, the methods associated with it will also be moved. These methods are `setGameMode()` and `setAI()`. At first glance this is all that will be required to move this `AI` field.
 
-### 3.2 After Completion
+The `AI` class in ChessMaster actually clicks the board like a human player would to move pieces. This seems like a poor way of handling things, but to change it would be very time consuming. One possible solution here would be for the `AI` class to simply return the best move. Then the actual execution of the move would be handled by the `Main` class which keeps track of turns.
+
+### 3.2 After Completing Implementation
 
 This change was relatively easy to implement, and it achieved its goal of taking functionality away from the `GraphicsHandler` class. Now all the `GraphicsHandler` does is handle the graphics. To give some numbers on the simplification of `GraphicsHandler`, it was previously 280 lines of code with 6 methods. Now it's 150 lines of code with just 1 method.
 
