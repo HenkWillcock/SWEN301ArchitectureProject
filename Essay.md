@@ -164,7 +164,7 @@ Used for storing data about a single move.
 | Queen   | New Queen      |
 
 Problems:
-* Most moves won't utilise the 'New Queen' field. There should be a 'PromotionMove' class extending this one which adds this field.
+* Most moves won't utilise the 'New Queen' field. A potiential solution to this would be a 'PromotionMove' class extending this one which adds this field.
 * 'Move Type' shouldn't be a String, it should be an enumerated type. This would remove many opportunities for bugs and allow developers to see all the possible move types easily.
 * The name 'On Source' isn't descriptive, it should be renamed 'Moving Piece'.
 
