@@ -107,7 +107,9 @@ The `canCastle()` and `getCastlingMove()` methods could then be incorporated int
 
 The graphics handler is the front end of the program. It reads data from a reference to the board and draws a visual representation to the screen. This includes highlighting the selected piece and highlighting in a different colour all the squares the piece can move to in the next turn.
 
-A problem with this class is that it also handles some of the control of the game. It has a 'Mouse Handler' object and a method `clicked(int x, int y)` which is called by the MouseHandler. The 'clicked' method takes the screen location of the mouse and determines which square has been clicked, it then tells this to the board. A better way to do this is to create a full model view controller, by making this class purely for rendering the game from a model of the board. All the other methods would then be moved to either the model or controller.
+A problem with this class is that it also handles some of the human input of the game. It has a 'Mouse Handler' object and a method `clicked(int x, int y)` which is called by the MouseHandler. The 'clicked' method takes the screen location of the mouse and determines which square has been clicked, it then tells this to the board. A better way to do this is to create a full model view controller, by making this class purely for rendering the game from a model of the board. All the other methods would then be moved to either the model or controller.
+
+As well as handing human input of the game, the graphics handler also is necessary for the AI input. This is because in a single player game after the player completes their move, this class calls the `playNextMove()` method in the `AI` class. This method prompts the AI to move, then control is given back to the human player. This is a poor way to handle the AI input, it should be handled by a separate `GamePhases` class, which is specifically created to keep track of turns and nothing else. This would deligate tasks better and reduce complexity.
 
 ##### *Main*
 
@@ -120,6 +122,8 @@ The 'Main' object contains fields for a Board object, a Game object, a Movement 
 This class is responsible for determining the next move for the computer player to do. It only has one important public method `playNextMove()`. This method utilises private methods to both determine the next move and execute it. This is great encaptulation because almost all of the AI class is internal. This means interacting with the 'AI' class is very simple because there is only one method to worry about which has a clear purpose. This encaptulation also allows the developer to change the AI class completely, as long as they keep the `playNextMove()` method.
 
 A problem with the 'AI' class is the `minimax()` method, which is incredibly large. The method is over 100 lines long and contains very complex nested loops and logic. This complexity makes alterations to the method difficult, especially for outside developers.
+
+The AI class in ChessMaster actually clicks the board like a human player would to move pieces. This seems like a poor way of handling things, but to change it would be very time consuming. One possible solution here would be for the AI class to simply return the best move. Then the actual execution of the move would be handled by the Main class which keeps track of turns.
 
 #### 2.1.3 Data Storage Objects
 
