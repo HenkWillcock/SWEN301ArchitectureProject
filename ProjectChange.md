@@ -1,8 +1,15 @@
 ## 1 Change Proposals
 
+2.4 Known Bugs
+File saving doesn't work on Windows.
+Undo doesn't remove highlighted cells.
+In certain games against AI, one can kill AI's king, and the game still proceeds! Likely due to a bug in generating moves of other pieces, which allows some unallowable moves while the king is in check.
+In one player mode, at times, AI takes longer (up to 50 seconds) to play its move, and the human player's move is not shown on the board till the AI plays its move.
+The reason for this bug is unknown.
+
 ### 1.1 Simplify Movement Class
 
-The purpose of this change is to simplify the cluttered `Movement` class by moving functionality out of it into other classes, mostly the concrete `Piece` classes (Knight, Rook, Bishop, etc.). This change would be valueable to the program because it would substantially reduce the complexity of its biggest classes. 
+ A major problem with the 'Movement' class is its size. The purpose of this change is to simplify the cluttered `Movement` class by moving functionality out of it into other classes, mostly the concrete classes which extend the `Piece` abstract class. These are Knight, Rook, Bishop, etc. This change would be valueable to the program because it would substantially reduce the complexity of its biggest class. The methods which return lists of potential moves for example getKnightMoves(Knight knight), will be moved to their corresponding class. The 'Piece' class will be given an abstract method getMoves() which will be implemented differently in each class which extends 'Piece'. The useful movesInDir() method will be moved to the Piece class to be used by all the pieces. The recomputeMoves() and getAllMoves() methods then become unnecessary with this change. Potientially after this is done, the canCastle() and getCastlingMove() methods could be incorporated into the King's getMoves() method.
 
 ### 1.2 Build Full Model-View-Controller Architecture
 
