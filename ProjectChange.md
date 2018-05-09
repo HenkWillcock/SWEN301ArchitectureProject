@@ -77,7 +77,4 @@ First, methods were created for drawing the axis labels of the chess board. Prev
 
 The `paintComponent()` method is now only 8 lines long and is very readable, its complexity being abstracted away by these new methods. It's also worth noting that adding these methods didn't add a subtantial amount of code. In fact, the total lines of code is slightly less than before because of the comments I removed.
 
-Splitting up the `paintComponent()` method will make future changes to the `GraphicsHandler` class much easier. This is because developers will be able to find the specific method they want to change and change it. Whereas before they would be navigating through spaghetti code while worrying about unintentionally breaking the whole thing.The `paintComponent()` method is now only 8 lines long and is very readable, its complexity being abstracted away by these new methods. It's also worth noting that adding these methods didn't add a subtantial amount of code. In fact, the total lines of code is slightly less than before because of the comments I removed.
-
 Splitting up the `paintComponent()` method will make future changes to the `GraphicsHandler` class much easier. This is because developers will be able to find the specific method they want to change and change it. Whereas before they would be navigating through spaghetti code while worrying about unintentionally breaking the whole thing.
-
